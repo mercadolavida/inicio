@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mercado La Vida</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="header-image">
+                <img src="lavida.jpg" alt="Glorieta de la entrada a La Vida">
+            </div>
+            <div class="header-text">
+                <h1>Mercado La Vida</h1>
+                <h2>Encuentra los mejores productos y servicios que tus vecinos tienen para ti</h2>
+                <p>Fraccionamiento La Vida - Corregidora, Qro.</p>
+            </div>
+        </header>
+        <div id="intro">
+            <h3>¿Quieres que tu negocio aparezca gratis en Mercado La Vida? Envía un correo a <a href="mailto:mercadolavida@gmail.com">mercadolavida@gmail.com</a></h3>
+        </div>
+        <div id="search-section">
+            <input type="text" id="searchBox" placeholder="Buscar...">
+            <button onclick="performSearch()">Buscar</button>
+            <button onclick="clearSearch()">Limpiar</button>
+        </div>
+        <div id="results">
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.basic.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
