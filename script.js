@@ -9,6 +9,7 @@ const data = [
     { name: 'El Buen Taco', category: 'Restaurante', description: 'Tacos, parrilla y más...', location: 'GGW8+29 Los Ángeles, Querétaro', phone: 'ND' },
     { name: 'Asturiano', category: 'Abarrotes', description: 'Amplio catálogo de productos, como cerveza, vinos y licores, tabaco, botanas, refrescos y bebidas, entre otros.', location: 'GGW8+29 Corregidora, Querétaro', phone: 'ND' },
     { name: 'Katori Martial Arts', category: 'Deportes', description: 'Academia de Artes Marciales.', location: 'GGW8+6X Corregidora, Querétaro', phone: '442 476 6449' },
+    { name: 'Papelería Tadeo', category: 'Papelería', description: 'Papelería.', location: 'GGW9+73 Corregidora Municipality, Querétaro', phone: 'ND' },
 ];
 
 const options = {
