@@ -67,7 +67,7 @@ button:hover {
 .main-content {
     display: grid;
     gap: 100px;
-    max-width: 1200px;
+    max-width: 100%;
     padding: 1em;
     margin: auto;
     align-items: start;
