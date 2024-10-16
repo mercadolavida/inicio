@@ -51,28 +51,32 @@ function performSearch() {
         return;
     }
 
-    results.forEach((item, index) => {
-        const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.item.location)}`;
-        const phoneLink = `tel:${item.item.phone}`;
-        
-        html += `<div class="result-item">
-                    <a href="javascript:void(0);" onclick="openImagePopup('${item.item.image || 'ruta_a_imagen_por_defecto.jpg'}')">
-                        <img src="${item.item.image || 'ruta_a_imagen_por_defecto.jpg'}" alt="${item.item.name}" class="business-image">
-                    </a>
-                    <h3>${item.item.name}</h3>
-                    <p><strong>Categoría:</strong> ${item.item.category}</p>
-                    <p>${item.item.description}</p>
-                    <p><strong>Ubicación:</strong> <a href="${mapLink}" target="_blank">${item.item.location}</a></p>
-                    <p><strong>Contacto:</strong> <a href="${phoneLink}">${item.item.phone}</a></p>
-                 </div>`;
-    });
+    if (results.length === 0) {
+        html = `<p class="no-results">No se encontraron resultados para "${query}".</p>`;
+    } else {
+        results.forEach((item, index) => {
+            const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.item.location)}`;
+            const phoneLink = `tel:${item.item.phone}`;
+            
+            html += `<div class="result-item">
+                        <a href="javascript:void(0);" onclick="openImagePopup('${item.item.image || 'ruta_a_imagen_por_defecto.jpg'}')">
+                            <img src="${item.item.image || 'ruta_a_imagen_por_defecto.jpg'}" alt="${item.item.name}" class="business-image">
+                        </a>
+                        <h3>${item.item.name}</h3>
+                        <p><strong>Categoría:</strong> ${item.item.category}</p>
+                        <p>${item.item.description}</p>
+                        <p><strong>Ubicación:</strong> <a href="${mapLink}" target="_blank">${item.item.location}</a></p>
+                        <p><strong>Contacto:</strong> <a href="${phoneLink}">${item.item.phone}</a></p>
+                     </div>`;
+        });
+    }
 
     document.getElementById('results').innerHTML = html;
 }
 
 function openImagePopup(imageUrl) {
-    const width = 800;  // Ajusta el ancho de la ventana emergente
-    const height = 400; // Ajusta la altura de la ventana emergente
+    const width = 800;
+    const height = 400;
     const left = (screen.width / 2) - (width / 2);
     const top = (screen.height / 2) - (height / 2);
     
