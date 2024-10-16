@@ -125,7 +125,7 @@ button:hover {
 }
 
 .business-image {
-    max-height: 4rem;
+    max-height: 5rem;
     width: auto;
     object-fit: cover;
     border-radius: 8px;
