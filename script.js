@@ -1,8 +1,8 @@
 const data = [
-    { name: 'Calabazas', category: 'Decoración', description: 'Adornos de temporada hechos a mano.', location: 'Whatsapp', phone: '55 1953 7068', image: 'calab.png' },
+    { name: 'Calabazas', category: 'Decoración', description: 'Adornos de temporada hechos a mano.', location: 'WhatsApp', phone: '55 1953 7068', image: 'calab.png' },
     { name: 'Katori Martial Arts', category: 'Deportes', description: 'Academia de Artes Marciales.', location: 'GGW8+6X Corregidora, Querétaro', phone: '442 476 6449', image: 'karate.png' },
     { name: 'Papelería Tadeo', category: 'Papelería', description: 'Papelería.', location: 'GGW9+73 Corregidora Municipality, Querétaro', phone: 'ND', image: 'tadeo.png' },
-    { name: 'AnchorGuard Security', category: 'Servicios', description: 'Consultoría integral en seguridad para empresas de cualquier tamaño y residencias.', location: 'www.anchorguardsecurity.com', phone: 'ND', image: 'anchor.webp' },
+    { name: 'AnchorGuard Security', category: 'Servicios', description: 'Consultoría integral en seguridad para empresas de cualquier tamaño y residencias.', location: 'www.anchorguardsecurity.com', phone: 'info@anchorguardsecurity.com', image: 'anchor.webp' },
     { name: 'Oxxo Plaza La Vida', category: 'Abarrotes', description: 'Tienda de conveniencia que vende productos de consumo diario, como comida preparada, botanas y bebidas.', location: 'GGW8+5W Corregidora, Querétaro', phone: 'ND', image: 'oxxo.png' },
     { name: 'Oxxo Luna Gas', category: 'Abarrotes', description: 'Tienda de conveniencia que vende productos de consumo diario, como comida preparada, botanas y bebidas.', location: 'GGW9+5J El Pueblito, Querétaro', phone: 'ND', image: 'oxxo.png' },
     { name: 'Oxxo Av. De La Vida', category: 'Abarrotes', description: 'Tienda de conveniencia que vende productos de consumo diario, como comida preparada, botanas y bebidas.', location: 'GGR8+R9 Corregidora, Querétaro', phone: 'ND', image: 'oxxo.png' },
@@ -23,19 +23,27 @@ const fuse = new Fuse(data, options);
 function loadAllBusinesses() {
     let html = '';
     data.forEach((item, index) => {
-        const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location)}`;
-        const phoneLink = `tel:${item.phone}`;
-        
+        const mapLink = item.location.startsWith('http') || item.location.startsWith('www')
+        ? (item.location.startsWith('www') ? `https://${item.location}` : item.location)
+        : /^[A-Z0-9]+\+/.test(item.location)
+          ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location)}`
+          : null;
+        const phoneLink = item.phone.includes('@') ? `mailto:${item.phone}` :
+        item.phone.startsWith('www') ? `https://${item.phone}` :
+        `tel:${item.phone}`;
+
         html += `<div class="result-item">
-                    <a href="javascript:void(0);" onclick="openImagePopup('${item.image || 'ruta_a_imagen_por_defecto.jpg'}')">
-                        <img src="${item.image || 'ruta_a_imagen_por_defecto.jpg'}" alt="${item.name}" class="business-image">
-                    </a>
-                    <h3>${item.name}</h3>
-                    <p><strong>Categoría:</strong> ${item.category}</p>
-                    <p>${item.description}</p>
-                    <p><strong>Ubicación:</strong> <a href="${mapLink}" target="_blank">${item.location}</a></p>
-                    <p><strong>Contacto:</strong> <a href="${phoneLink}">${item.phone}</a></p>
-                 </div>`;
+        <a href="javascript:void(0);" onclick="openImagePopup('${item.image || 'ruta_a_imagen_por_defecto.jpg'}')">
+            <img src="${item.image || 'ruta_a_imagen_por_defecto.jpg'}" alt="${item.name}" class="business-image">
+        </a>
+        <h3>${item.name}</h3>
+        <p><strong>Categoría:</strong> ${item.category}</p>
+        <p>${item.description}</p>
+        <p><strong>Ubicación:</strong> ${
+            mapLink ? `<a href="${mapLink}" target="_blank">${item.location}</a>` : item.location
+        }</p>
+        <p><strong>Contacto:</strong> <a href="${phoneLink}">${item.phone}</a></p>
+     </div>`;
     });
 
     document.getElementById('results').innerHTML = html;
@@ -55,19 +63,31 @@ function performSearch() {
     if (results.length === 0) {
         html = `<p class="no-results">No se encontraron resultados para "${query}".</p>`;
     } else {
-        results.forEach((item, index) => {
-            const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.item.location)}`;
-            const phoneLink = `tel:${item.item.phone}`;
-            
+        results.forEach((result) => {
+            const item = result.item; // Accede al elemento dentro del objeto result
+            const mapLink = item.location.startsWith('http') || item.location.startsWith('www')
+                ? (item.location.startsWith('www') ? `https://${item.location}` : item.location)
+                : /^[A-Z0-9]+\+/.test(item.location)
+                    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location)}`
+                    : null;
+
+            const phoneLink = item.phone.includes('@') 
+                ? `mailto:${item.phone}`
+                : item.phone.startsWith('www') 
+                    ? `https://${item.phone}`
+                    : `tel:${item.phone}`;
+
             html += `<div class="result-item">
-                        <a href="javascript:void(0);" onclick="openImagePopup('${item.item.image || 'ruta_a_imagen_por_defecto.jpg'}')">
-                            <img src="${item.item.image || 'ruta_a_imagen_por_defecto.jpg'}" alt="${item.item.name}" class="business-image">
+                        <a href="javascript:void(0);" onclick="openImagePopup('${item.image || 'ruta_a_imagen_por_defecto.jpg'}')">
+                            <img src="${item.image || 'ruta_a_imagen_por_defecto.jpg'}" alt="${item.name}" class="business-image">
                         </a>
-                        <h3>${item.item.name}</h3>
-                        <p><strong>Categoría:</strong> ${item.item.category}</p>
-                        <p>${item.item.description}</p>
-                        <p><strong>Ubicación:</strong> <a href="${mapLink}" target="_blank">${item.item.location}</a></p>
-                        <p><strong>Contacto:</strong> <a href="${phoneLink}">${item.item.phone}</a></p>
+                        <h3>${item.name}</h3>
+                        <p><strong>Categoría:</strong> ${item.category}</p>
+                        <p>${item.description}</p>
+                        <p><strong>Ubicación:</strong> ${
+                            mapLink ? `<a href="${mapLink}" target="_blank">${item.location}</a>` : item.location
+                        }</p>
+                        <p><strong>Contacto:</strong> <a href="${phoneLink}">${item.phone}</a></p>
                      </div>`;
         });
     }
