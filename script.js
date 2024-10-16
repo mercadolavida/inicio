@@ -1,4 +1,7 @@
 const data = [
+    { name: 'Calabazas', category: 'Decoración', description: 'Adornos de temporada hechos a mano.', location: 'Whatsapp', phone: '55 1953 7068', image: 'calab.png' },
+    { name: 'Katori Martial Arts', category: 'Deportes', description: 'Academia de Artes Marciales.', location: 'GGW8+6X Corregidora, Querétaro', phone: '442 476 6449', image: 'karate.png' },
+    { name: 'Papelería Tadeo', category: 'Papelería', description: 'Papelería.', location: 'GGW9+73 Corregidora Municipality, Querétaro', phone: 'ND', image: 'tadeo.png' },
     { name: 'Oxxo Plaza La Vida', category: 'Abarrotes', description: 'Tienda de conveniencia que vende productos de consumo diario, como comida preparada, botanas y bebidas.', location: 'GGW8+5W Corregidora, Querétaro', phone: 'ND', image: 'oxxo.png' },
     { name: 'Oxxo Luna Gas', category: 'Abarrotes', description: 'Tienda de conveniencia que vende productos de consumo diario, como comida preparada, botanas y bebidas.', location: 'GGW9+5J El Pueblito, Querétaro', phone: 'ND', image: 'oxxo.png' },
     { name: 'Oxxo Av. De La Vida', category: 'Abarrotes', description: 'Tienda de conveniencia que vende productos de consumo diario, como comida preparada, botanas y bebidas.', location: 'GGR8+R9 Corregidora, Querétaro', phone: 'ND', image: 'oxxo.png' },
@@ -8,9 +11,6 @@ const data = [
     { name: 'San Juan Salchichonerías', category: 'Abarrotes', description: 'Venta de embutidos, lácteos, abarrotes y congelados', location: 'GGW8+2C Los Ángeles, Querétaro', phone: '442 223 3332', image: 'sanjuan.jpg' },
     { name: 'El Buen Taco', category: 'Restaurante', description: 'Tacos, parrilla y más...', location: 'GGW8+29 Los Ángeles, Querétaro', phone: 'ND', image: 'buentaco.png' },
     { name: 'Asturiano', category: 'Abarrotes', description: 'Amplio catálogo de productos, como cerveza, vinos y licores, tabaco, botanas, refrescos y bebidas, entre otros.', location: 'GGW8+29 Corregidora, Querétaro', phone: 'ND', image: 'asturiano.jpg' },
-    { name: 'Katori Martial Arts', category: 'Deportes', description: 'Academia de Artes Marciales.', location: 'GGW8+6X Corregidora, Querétaro', phone: '442 476 6449', image: 'karate.png' },
-    { name: 'Papelería Tadeo', category: 'Papelería', description: 'Papelería.', location: 'GGW9+73 Corregidora Municipality, Querétaro', phone: 'ND', image: 'tadeo.png' },
-    { name: 'Calabazas', category: 'Decoración', description: 'Adornos de temporada hechos a mano.', location: 'Whatsapp', phone: '55 1953 7068', image: 'calab.png' },
 ];
 
 const options = {
@@ -72,7 +72,7 @@ function performSearch() {
 
 function openImagePopup(imageUrl) {
     const width = 800;  // Ajusta el ancho de la ventana emergente
-    const height = 600; // Ajusta la altura de la ventana emergente
+    const height = 400; // Ajusta la altura de la ventana emergente
     const left = (screen.width / 2) - (width / 2);
     const top = (screen.height / 2) - (height / 2);
     
