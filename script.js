@@ -2,6 +2,7 @@ const data = [
     { name: 'Calabazas', category: 'Decoración', description: 'Adornos de temporada hechos a mano.', location: 'Whatsapp', phone: '55 1953 7068', image: 'calab.png' },
     { name: 'Katori Martial Arts', category: 'Deportes', description: 'Academia de Artes Marciales.', location: 'GGW8+6X Corregidora, Querétaro', phone: '442 476 6449', image: 'karate.png' },
     { name: 'Papelería Tadeo', category: 'Papelería', description: 'Papelería.', location: 'GGW9+73 Corregidora Municipality, Querétaro', phone: 'ND', image: 'tadeo.png' },
+    { name: 'AnchorGuard Security', category: 'Servicios', description: 'Consultoría integral en seguridad para empresas de cualquier tamaño y residencias.', location: 'www.anchorguardsecurity.com', phone: 'ND', image: 'anchor.webp' },
     { name: 'Oxxo Plaza La Vida', category: 'Abarrotes', description: 'Tienda de conveniencia que vende productos de consumo diario, como comida preparada, botanas y bebidas.', location: 'GGW8+5W Corregidora, Querétaro', phone: 'ND', image: 'oxxo.png' },
     { name: 'Oxxo Luna Gas', category: 'Abarrotes', description: 'Tienda de conveniencia que vende productos de consumo diario, como comida preparada, botanas y bebidas.', location: 'GGW9+5J El Pueblito, Querétaro', phone: 'ND', image: 'oxxo.png' },
     { name: 'Oxxo Av. De La Vida', category: 'Abarrotes', description: 'Tienda de conveniencia que vende productos de consumo diario, como comida preparada, botanas y bebidas.', location: 'GGR8+R9 Corregidora, Querétaro', phone: 'ND', image: 'oxxo.png' },
