@@ -102,7 +102,7 @@ button:hover {
 #results {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptable según el tamaño de pantalla */
-    gap: 3rem;
+    gap: 1rem;
     justify-items: center;
     margin-left: 40px;
     margin-right: 40px;
@@ -110,11 +110,11 @@ button:hover {
 
 .result-item {
     background-color: white;
-    padding: 3px;
+    padding: 6%;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-    height: 340px;
+    height: 300px;
     width: 280px;
 }
 
