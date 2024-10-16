@@ -10,7 +10,7 @@ const data = [
     { name: 'Asturiano', category: 'Abarrotes', description: 'Amplio catálogo de productos, como cerveza, vinos y licores, tabaco, botanas, refrescos y bebidas, entre otros.', location: 'GGW8+29 Corregidora, Querétaro', phone: 'ND', image: 'asturiano.jpg' },
     { name: 'Katori Martial Arts', category: 'Deportes', description: 'Academia de Artes Marciales.', location: 'GGW8+6X Corregidora, Querétaro', phone: '442 476 6449', image: 'karate.png' },
     { name: 'Papelería Tadeo', category: 'Papelería', description: 'Papelería.', location: 'GGW9+73 Corregidora Municipality, Querétaro', phone: 'ND', image: 'tadeo.png' },
-    { name: 'Calabazas', category: 'Decoración', description: 'Adornos de temporada hechos a mano.', location: 'Whatsapp', phone: '55 1953 7068', image: 'calabazas.jpg' },
+    { name: 'Calabazas', category: 'Decoración', description: 'Adornos de temporada hechos a mano.', location: 'Whatsapp', phone: '55 1953 7068', image: 'calabazas.png' },
 ];
 
 const options = {
